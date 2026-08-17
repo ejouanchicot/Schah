@@ -36,19 +36,30 @@
   .page{padding:1.1rem 1.2rem 1.4rem;max-width:1900px;margin:0 auto}
 
   /* ---------- bandeau ---------- */
-  .top{display:flex;align-items:baseline;flex-wrap:wrap;gap:.6rem 1.4rem;
-    border-bottom:1px solid var(--line);padding-bottom:.7rem;margin-bottom:.9rem}
+  .top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;
+    gap:.3rem 1.4rem;padding-bottom:.55rem;margin-bottom:.75rem;
+    border-bottom:1px solid var(--line)}
   .top h1{margin:0;font-size:2.05rem;font-weight:800;letter-spacing:-.02em;line-height:1}
   .eyebrow{color:var(--gold);font-size:.66rem;font-weight:800;letter-spacing:.17em;
     text-transform:uppercase}
   .top .note{color:var(--dim);font-size:.85rem;flex:1 1 15rem;min-width:0}
 
-  /* ---------- ordre de kill ---------- */
-  .kill{display:flex;align-items:center;gap:.32rem;flex-wrap:wrap}
-  .kill span{background:var(--panel2);border:1px solid var(--gold);color:var(--gold);
-    border-radius:.35rem;padding:.24rem .58rem;font-size:.82rem;font-weight:700;white-space:nowrap}
-  .kill span.last{border-color:var(--line);color:var(--dim)}
-  .kill i{color:var(--dim);font-style:normal;font-size:.8rem}
+  /* ---------- ordre de kill : bandeau central ---------- */
+  .killbar{border:1px solid rgba(216,178,106,.45);border-radius:.6rem;
+    background:linear-gradient(180deg,rgba(216,178,106,.10),rgba(216,178,106,.03));
+    padding:.6rem .9rem;margin-bottom:.85rem;text-align:center}
+  .killbar .kl{display:block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--gold);font-weight:800;margin-bottom:.45rem}
+  .kill{display:flex;align-items:stretch;justify-content:center;gap:.4rem;flex-wrap:wrap}
+  .kill b{background:var(--panel2);border:1px solid var(--gold);color:var(--gold);
+    border-radius:.4rem;padding:.3rem .85rem;font-size:1.02rem;font-weight:800;
+    line-height:1.1;white-space:nowrap;display:flex;flex-direction:column;gap:.1rem}
+  .kill b em{font-style:normal;font-size:.6rem;font-weight:600;color:var(--dim);
+    letter-spacing:.08em}
+  .kill b.last{border-color:var(--line);color:var(--dim)}
+  .kill i{color:var(--gold);font-style:normal;font-size:1rem;align-self:center;opacity:.55}
+  .kh{display:block;margin:.5rem 0 0;font-size:.78rem;color:var(--dim);line-height:1.35}
+  .kh b{color:var(--txt)}
 
   /* ---------- grille ---------- */
   .grid{display:grid;gap:.8rem;grid-template-columns:1fr}
@@ -99,8 +110,9 @@
     .page{padding:.8rem .8rem 1.2rem}
     .top{gap:.45rem .9rem;padding-bottom:.55rem;margin-bottom:.7rem}
     .top h1{font-size:1.7rem}
-    .top .note{flex-basis:100%;font-size:.78rem;line-height:1.35}
-    .kill span{font-size:.76rem;padding:.2rem .48rem}
+    .killbar{padding:.5rem .6rem;margin-bottom:.65rem}
+    .kill b{font-size:.92rem;padding:.26rem .6rem}
+    .kh{font-size:.75rem}
     .grid{gap:.6rem}
     .stack{display:contents}
     .a-map{order:1}.a-jobs{order:2}.a-wipe{order:3}.a-adds{order:4}.a-prep{order:5}
@@ -151,10 +163,14 @@
       <div class="eyebrow">Geas Fete &middot; Reisenjima</div>
       <h1>Schah</h1>
     </div>
+  </div>
+
+  <div class="killbar">
+    <span class="kl">Ordre de kill</span>
     <div class="kill">
-      <span>Bhata</span><i>&rsaquo;</i><span>Ashva</span><i>&rsaquo;</i><span>Gaja</span><i>&rsaquo;</i><span>Ratha</span><i>&rsaquo;</i><span class="last">Mantri</span>
+      <b>Bhata<em>0:30</em></b><i>&rsaquo;</i><b>Ashva<em>1:00</em></b><i>&rsaquo;</i><b>Gaja<em>1:30</em></b><i>&rsaquo;</i><b>Ratha<em>2:00</em></b><i>&rsaquo;</i><b class="last">Mantri<em>3:00</em></b>
     </div>
-    <p class="note">C'est l'ordre de pop. <b>Le Bhata coupe la file d&egrave;s qu'il sort</b> &mdash; au-del&agrave; de 2 min il devient un 2<sup>e</sup> Mantri.</p>
+    <p class="kh">C'est l'ordre de pop. <b>Le Bhata coupe la file d&egrave;s qu'il sort</b> &mdash; au-del&agrave; de 2 min il devient un 2<sup>e</sup> Mantri.</p>
   </div>
 
   <div class="grid">
