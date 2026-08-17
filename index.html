@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Schah &mdash; qui fait quoi</title>
+<style>
+  :root{
+    --bg:#100e17;--panel:#1a1724;--line:#332d45;
+    --txt:#e9e5dd;--dim:#a49bb5;--gold:#d8b26a;--red:#ff6b6b;--blue:#6fb2e0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);line-height:1.55;font-size:15px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:860px;margin:0 auto;padding:36px 22px 60px}
+  h1{margin:0 0 4px;font-size:34px;font-weight:800;letter-spacing:-.02em}
+  .tag{color:var(--dim);margin:0 0 26px;font-size:15px}
+  h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+    margin:36px 0 14px;padding-bottom:7px;border-bottom:1px solid var(--line);font-weight:700}
+
+  /* --- carte --- */
+  .map{display:grid;grid-template-columns:1fr 250px;gap:22px;align-items:start}
+  .map figure{margin:0;background:#000;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .map img{display:block;width:100%;height:auto}
+  .legend{display:flex;flex-direction:column;gap:12px}
+  .lg{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--c,var(--gold));
+    border-radius:9px;padding:12px 14px}
+  .lg h3{margin:0 0 4px;font-size:14px;font-weight:700}
+  .lg p{margin:0;font-size:13px;color:var(--dim);line-height:1.5}
+  .lg .pos{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--c,var(--gold));font-weight:700;margin-bottom:3px}
+
+  /* --- ordre --- */
+  .order{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-bottom:10px}
+  .order b{background:#221e30;border:1px solid var(--gold);color:var(--gold);
+    border-radius:7px;padding:7px 14px;font-size:15px}
+  .order b.last{border-color:var(--line);color:var(--dim)}
+  .order i{color:var(--dim);font-style:normal}
+
+  /* --- qui fait quoi --- */
+  .who{border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .who > div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:13px 16px;
+    border-bottom:1px solid var(--line)}
+  .who > div:last-child{border-bottom:none}
+  .who > div:nth-child(odd){background:var(--panel)}
+  .who .j{font-weight:800;font-size:16px;color:var(--gold);letter-spacing:.02em}
+  .who .j small{display:block;color:var(--dim);font-weight:600;font-size:11px;
+    letter-spacing:.09em;text-transform:uppercase;margin-top:2px}
+
+  ul{margin:0;padding-left:20px}
+  li{margin-bottom:7px}
+  .red{border:1px solid rgba(255,107,107,.35);background:rgba(255,107,107,.07);
+    border-radius:10px;padding:15px 18px}
+  .red ul{padding-left:16px}
+  .red li::marker{color:var(--red)}
+  b.hot{color:var(--red)}
+
+  @media(max-width:700px){
+    h1{font-size:27px}
+    .map{grid-template-columns:1fr}
+    .who > div{grid-template-columns:1fr;gap:4px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Schah</h1>
+<p class="tag">WAR pop et tient les adds &middot; RUN tient Schah &middot; les deux packs ne se touchent jamais</p>
+
+<h2>Placement</h2>
+<div class="map">
+  <figure><img src="map.jpg" alt="Carte de placement pour Schah"></figure>
+  <div class="legend">
+    <div class="lg" style="--c:var(--blue)">
+      <span class="pos">&#9654; Droite &mdash; au ???</span>
+      <h3>RUN + Schah</h3>
+      <p>Le WAR pop au ???, le RUN Provoke Schah et le tient <b>sur place</b>. Schah ne bouge plus de la soir&eacute;e.</p>
+    </div>
+    <div class="lg" style="--c:var(--gold)">
+      <span class="pos">&#9664; Gauche &mdash; 20 yalms</span>
+      <h3>Groupe + WAR + adds</h3>
+      <p>Le WAR ram&egrave;ne chaque add ici. C'est l&agrave; que tout le monde tape.</p>
+    </div>
+    <div class="lg" style="--c:var(--red)">
+      <span class="pos">Pourquoi s&eacute;par&eacute;</span>
+      <h3>&Ccedil;a coupe dans les deux sens</h3>
+      <p><b>Les AoE de Schah</b> ne touchent pas le groupe : Royal Decree, Banneret Charge (20 yalms, HP &agrave; 1), Enthrall.</p>
+      <p style="margin-top:7px"><b>Les -ga des adds</b> ne touchent pas le RUN : Silencega, Slowga, Paralyga, Bindga, Sleepga, Stun AoE. Il tank Schah propre, sans debuff.</p>
+    </div>
+  </div>
+</div>
+
+<h2>Ordre de kill</h2>
+<div class="order">
+  <b>Bhata</b><i>&rsaquo;</i><b>Ashva</b><i>&rsaquo;</i><b>Gaja</b><i>&rsaquo;</i><b>Ratha</b><i>&rsaquo;</i><b class="last">Mantri</b>
+</div>
+<p style="margin:0;color:var(--dim);font-size:14px">C'est l'ordre de pop. <b style="color:var(--txt)">Le Bhata coupe la file d&egrave;s qu'il sort</b> &mdash; au-del&agrave; de 2 min il se transforme en 2<sup>e</sup> Mantri.</p>
+
+<h2>Qui fait quoi</h2>
+<div class="who">
+  <div><span class="j">WAR<small>/DRG &middot; leader</small></span>
+    <span>Porte le trinket et <b>pop</b>. Provoke chaque add et les ram&egrave;ne &agrave; gauche. Ne touche jamais Schah.</span></div>
+  <div><span class="j">RUN<small>tank Schah</small></span>
+    <span>Provoke Schah juste apr&egrave;s le pop et le tient sur place, &agrave; droite. <b>Odyllic &agrave; 55&nbsp;%.</b></span></div>
+  <div><span class="j">SCH<small>anti-shield</small></span>
+    <span><b>Casse le shield du Gaja</b> &agrave; la magie &mdash; sorts rapides et pas chers, c'est le nombre de casts qui compte, pas la puissance. Accession Erase sur les debuffs de groupe.</span></div>
+  <div><span class="j">RDM<small>heal</small></span>
+    <span>Heal principal. Haste II, Phalanx II sur les tanks, Dia III.</span></div>
+  <div><span class="j">BRD<small>songs</small></span>
+    <span>Songs + Savage Blade sur les adds.</span></div>
+  <div><span class="j">COR<small>rolls</small></span>
+    <span>Chaos + Sam rolls, Savage Blade. <b>Quick Draw</b> passe &agrave; travers le shield du Gaja.</span></div>
+  <div><span class="j">GEO<small>bubbles</small></span>
+    <span>Fury / Frailty, bubbles <b>c&ocirc;t&eacute; adds</b> &mdash; pas c&ocirc;t&eacute; RUN.</span></div>
+</div>
+
+<h2>Les 4 trucs qui font wipe</h2>
+<div class="red">
+<ul>
+  <li><b class="hot">Personne ne touche Schah</b> &agrave; part le RUN. Pas de Provoke, pas de WS, rien.</li>
+  <li><b class="hot">WAR : jamais Super Jump ni High Jump</b> &mdash; &ccedil;a efface sa haine, les adds partent sur les mages. Sors-les de ta barre.</li>
+  <li><b class="hot">Ne pas passer 50&nbsp;% de Schah</b> tant qu'un add est vivant &rarr; Enthrall, charm AoE.</li>
+  <li><b class="hot">Garder les deux packs s&eacute;par&eacute;s</b> &mdash; le groupe hors des AoE de Schah, le RUN hors des -ga des adds. Personne ne fait la navette.</li>
+</ul>
+</div>
+
+<h2>&Agrave; savoir sur les adds</h2>
+<ul>
+  <li><b>Ashva</b> &mdash; Silencega AoE : &ccedil;a peut couper le RDM et le SCH en m&ecirc;me temps. Echo Drops sur les deux.</li>
+  <li><b>Gaja</b> &mdash; shield : la magie fait 0 d&eacute;g&acirc;t mais l'&eacute;rode, le physique ne l'enl&egrave;ve pas. Quick Draw passe &agrave; travers.</li>
+  <li><b>Ratha</b> &mdash; si Shadow Wreck part, il peut gagner un buff type Dread Spikes.</li>
+  <li><b>Mantri</b> &mdash; Stun AoE + Sleepga. Ne respawn jamais. On peut la laisser en vie &agrave; la fin : 1 seul add vivant ne donne pas de DT &agrave; Schah.</li>
+</ul>
+
+<h2>Avant de pop</h2>
+<ul>
+  <li>Le <b>WAR est party leader</b> et porte Schah's gambit.</li>
+  <li>Les 7 ont leur <b>tribulens</b>.</li>
+  <li><b>Echo Drops</b> sur le RDM et le SCH.</li>
+  <li><b>Throwing Tomahawks</b> dans le sac du WAR.</li>
+</ul>
+
+</div>
+</body>
+</html>
